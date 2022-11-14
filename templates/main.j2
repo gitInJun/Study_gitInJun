@@ -1,9 +1,29 @@
 {% extends "layout.html" %}
 {% block style %}
-    <style>
-    </style>
+<style>
+    article.one div {
+        display: inline;
+    }
+</style>
 {% endblock %}
 {% block main %}
-    <article>
-    </article>
+<article class="one">
+    <input type="date" class="input1" value="{{ today }}" max="{{ today }}">
+    <input type="date" class="input2" value="{{ today }}" max="{{ today }}">
+    <input type="submit" class="submit">
+    <div>
+        <input type="radio" id="default" name="activity" value="default" checked>
+        <label for="default">기본</label>
+    </div>
+    <div>
+        <input type="radio" id="24h" name="activity" value="24h">
+        <label for="24h">24시간 평균</label>
+    </div>
+</article>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+    console.log({{ a }})
+    console.log('{{ today }}')
+</script>
 {% endblock %}
