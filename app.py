@@ -1,12 +1,16 @@
 from flask import Flask, render_template, url_for
-import datetime as dt
+from datetime import date, timedelta
+import datetime
 
 app = Flask(__name__)
 
 @app.route("/")
-def mian():
-    today=str(dt.datetime.today())[:10]
-    return render_template('main.j2', today=today, a=1)
+def main():
+    today = date.today()
+    earlyMonth = date(today.year, today.month, 1)
+    dayLabel = list(range(1, (today - earlyMonth).days + 2))
+    now = datetime.datetime.now()
+    return render_template('main.j2', today=today, earlyMonth=earlyMonth, dayLabel=dayLabel, now=now)
 
 if __name__ == '__main__':
     app.run()

@@ -2,28 +2,68 @@
 {% block style %}
 <style>
     article.one div {
+        float: right;
+        text-align: center;
         display: inline;
+        margin-right: 10px;
     }
 </style>
 {% endblock %}
 {% block main %}
 <article class="one">
-    <input type="date" class="input1" value="{{ today }}" max="{{ today }}">
+    <input type="date" class="input1" value="{{ earlyMonth }}" max="{{ today }}">
     <input type="date" class="input2" value="{{ today }}" max="{{ today }}">
     <input type="submit" class="submit">
-    <div>
-        <input type="radio" id="default" name="activity" value="default" checked>
-        <label for="default">기본</label>
-    </div>
     <div>
         <input type="radio" id="24h" name="activity" value="24h">
         <label for="24h">24시간 평균</label>
     </div>
+    <div>
+        <input type="radio" id="default" name="activity" value="default" checked>
+        <label for="default">기본</label>
+    </div>
+    <canvas id="chartOne"></canvas> 
 </article>
 {% endblock %}
 {% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script type="text/javascript">
-    console.log({{ a }})
-    console.log('{{ today }}')
+    console.log('{{ now }}')
+    const dayLabel = {{ dayLabel }}
+    new Chart(document.getElementById("chartOne"), {
+        type: 'line',
+        data: {
+            labels: dayLabel,
+            datasets: [{
+                data: [86, 114, 106, 106, 107, 111, 133, 221, 134, 162, 142, 162, 132, 154],
+                label: "1번 방",
+                borderColor: "#3e95cd",
+                fill: false
+            }, {
+                data: [86, 114, 106, 106, 107, 111, 133, 221, 134, 162, 142, 162, 132, 154],
+                label: "2번 방",
+                borderColor: "#8e5ea2",
+                fill: false
+            }, {
+                data: [86, 114, 106, 106, 107, 111, 133, 221, 134, 162, 142, 162, 172, 162],
+                label: "3번 방",
+                borderColor: "#3cba9f",
+                fill: false
+            }, {
+                data: [86, 114, 106, 106, 107, 111, 133, 221, 134, 162, 106, 107, 111, 111],
+                label: "4번 방",
+                borderColor: "#e8c3b9",
+                fill: false
+            }, {
+                data: [86, 114, 106, 106, 107, 111, 133, 221, 134, 114, 106, 106, 107, 111],
+                label: "5번 방",
+                borderColor: "#c45850",
+                fill: false
+            }
+            ]
+        },
+        options: {
+        }
+    });
 </script>
 {% endblock %}
