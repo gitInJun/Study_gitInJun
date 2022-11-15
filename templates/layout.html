@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <title>소카우넷</title>
     <style>
         /* Default */
         * {
             margin: 0;
             padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
         }
 
         img {
@@ -84,7 +89,7 @@
                 <ul>
                     <li class="one"><a href="/">메인</a></li>
                     <li class="two"><a href="/1">소 정보</a></li>
-                    <li class="three"><a href="/2">내 농장</a></li>
+                    <li class="three"><a href="/mine">내 농장</a></li>
                 </ul>
             </nav>
         </header>
@@ -95,4 +100,5 @@
     </div>
 </body>
 {% block script %}{% endblock %}
+
 </html>

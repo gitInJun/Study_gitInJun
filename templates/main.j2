@@ -7,13 +7,24 @@
         display: inline;
         margin-right: 10px;
     }
+
+    form {
+        float: left;
+    }
+
+    input {
+        font-size: 20px;
+    }
 </style>
 {% endblock %}
 {% block main %}
 <article class="one">
-    <input type="date" class="input1" value="{{ earlyMonth }}" max="{{ today }}">
-    <input type="date" class="input2" value="{{ today }}" max="{{ today }}">
-    <input type="submit" class="submit">
+    <form>
+        <input type="date" class="startDate" value="{{ earlyMonth }}" max="{{ today }}">
+        ~
+        <input type="date" class="endDate" value="{{ today }}" max="{{ today }}">
+        <input type="submit" class="submit">
+    </form>
     <div>
         <input type="radio" id="24h" name="activity" value="24h">
         <label for="24h">24시간 평균</label>
@@ -22,7 +33,7 @@
         <input type="radio" id="default" name="activity" value="default" checked>
         <label for="default">기본</label>
     </div>
-    <canvas id="chartOne"></canvas> 
+    <canvas id="chartOne"></canvas>
 </article>
 {% endblock %}
 {% block script %}
