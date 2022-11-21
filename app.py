@@ -10,7 +10,7 @@ def main():
     defaultStart = today - timedelta(29)
     dayLabel = list(range(1, (today - defaultStart).days + 1))
     randomlist = [random.choices(range(100, 200), k=(today - defaultStart).days+1), random.choices(range(100, 200), k=(today - defaultStart).days+1), random.choices(range(100, 200), k=(today - defaultStart).days+1), random.choices(range(100, 200), k=(today - defaultStart).days+1), random.choices(range(100, 200), k=(today - defaultStart).days+1),]
-    return render_template('main.j2', today=today, defaultStart=defaultStart, dayLabel=dayLabel, randomlist=randomlist)
+    return render_template('index.html', today=today, defaultStart=defaultStart, dayLabel=dayLabel, randomlist=randomlist)
 
 @app.route("/2")
 def mine():
