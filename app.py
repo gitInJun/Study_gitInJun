@@ -12,9 +12,9 @@ def main():
     randomlist = [random.choices(range(100, 200), k=(today - earlyMonth).days + 1), random.choices(range(100, 200), k=(today - earlyMonth).days + 1), random.choices(range(100, 200), k=(today - earlyMonth).days + 1), random.choices(range(100, 200), k=(today - earlyMonth).days + 1), random.choices(range(100, 200), k=(today - earlyMonth).days + 1),]
     return render_template('main.j2', today=today, earlyMonth=earlyMonth, dayLabel=dayLabel, randomlist=randomlist)
 
-@app.route("/mine")
+@app.route("/2")
 def mine():
-    return render_template('mine.j2')
+    return render_template('cctv.j2')
 
 if __name__ == '__main__':
     app.run()
