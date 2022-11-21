@@ -14,7 +14,7 @@ def main():
 
 @app.route("/2")
 def mine():
-    return render_template('mine.j2')
+    return render_template('cctv.j2')
 
 if __name__ == '__main__':
     app.run()
